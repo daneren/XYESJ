@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name></display-name>	
+  <filter>
+   <filter-name>EncodingFilter</filter-name>
+  	<filter-class>esj.publicdoc.filter.EncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>bm</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  </filter>
+   <filter-mapping>
+  	<filter-name>EncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+   <filter>
+   <filter-name>IsLoginFilter</filter-name>
+  	<filter-class>esj.front.usercenter.filter.IsLoginFilter</filter-class>
+  </filter>
+   <filter-mapping>
+  	<filter-name>IsLoginFilter</filter-name>
+  	<url-pattern>/person_center/*</url-pattern>
+  </filter-mapping>
+  <!-- 后台  -->
+  <filter>
+   <filter-name>IsAdminLoginFilter</filter-name>
+  	<filter-class>esj.back.filter.IsAdminLoginFilter</filter-class>
+  </filter>
+   <filter-mapping>
+  	<filter-name>IsAdminLoginFilter</filter-name>
+  	<url-pattern>/back/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+    <servlet-name>Admin_listServlet</servlet-name>
+    <servlet-class>esj.back.control.authoritie.servlet.Admin_listServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Authoritie_GroupServlet</servlet-name>
+    <servlet-class>esj.back.control.authoritie.servlet.Authoritie_GroupServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AuthoritieChangeStateServlet</servlet-name>
+    <servlet-class>esj.back.control.authoritie.servlet.AuthoritieChangeStateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Authoritie_GroupDeleteServlet</servlet-name>
+    <servlet-class>esj.back.control.authoritie.servlet.Authoritie_GroupDeleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Authoritie_GroupAddServlet</servlet-name>
+    <servlet-class>esj.back.control.authoritie.servlet.Authoritie_GroupAddServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Authoritie_GroupFindByIdServlet</servlet-name>
+    <servlet-class>esj.back.control.authoritie.servlet.Authoritie_GroupFindByIdServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Authoritie_GroupUpdataServlet</servlet-name>
+    <servlet-class>esj.back.control.authoritie.servlet.Authoritie_GroupUpdataServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Tag_ListServlet</servlet-name>
+    <servlet-class>esj.back.control.tag.servlet.Tag_ListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TagStateChangeServlet</servlet-name>
+    <servlet-class>esj.back.control.tag.servlet.TagStateChangeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TagAddServlet</servlet-name>
+    <servlet-class>esj.back.control.tag.servlet.TagAddServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TagUpdataServlet</servlet-name>
+    <servlet-class>esj.back.control.tag.servlet.TagUpdataServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UserDmand_ListServlet</servlet-name>
+    <servlet-class>esj.back.control.userDemand.servlet.UserDmand_ListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Product_ListServlet</servlet-name>
+    <servlet-class>esj.back.control.product.servlet.Product_ListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Product_CategoryServlet</servlet-name>
+    <servlet-class>esj.back.control.product.servlet.Product_CategoryServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Product_CategoryAddServlet</servlet-name>
+    <servlet-class>esj.back.control.product.servlet.Product_CategoryAddServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Product_CategoryDeleteServlet</servlet-name>
+    <servlet-class>esj.back.control.product.servlet.Product_CategoryDeleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Product_CategoryUpdateServlet</servlet-name>
+    <servlet-class>esj.back.control.product.servlet.Product_CategoryUpdateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Product_StateChangeServlet</servlet-name>
+    <servlet-class>esj.back.control.product.servlet.Product_StateChangeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Product_DeleteServlet</servlet-name>
+    <servlet-class>esj.back.control.product.servlet.Product_DeleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Admin_AddServlet</servlet-name>
+    <servlet-class>esj.back.control.authoritie.servlet.Admin_AddServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Admin_UpdateServlet</servlet-name>
+    <servlet-class>esj.back.control.authoritie.servlet.Admin_UpdateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AdminChangeStateServlet</servlet-name>
+    <servlet-class>esj.back.control.authoritie.servlet.AdminChangeStateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Admin_DeleteServlet</servlet-name>
+    <servlet-class>esj.back.control.authoritie.servlet.Admin_DeleteServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UserDemandChangeStateServlet</servlet-name>
+    <servlet-class>esj.back.control.userDemand.servlet.UserDemandChangeStateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UserDemand_DeleteServlet</servlet-name>
+    <servlet-class>esj.back.control.userDemand.servlet.UserDemand_DeleteServlet</servlet-class>
+  </servlet>
+  
+<!-- 刘青松	-->
+<servlet>
+    <servlet-name>admin_savelevelsServlet</servlet-name>
+    <servlet-class>esj.back.levels_manage.servlet.admin_savelevelsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>tset</servlet-name>
+    <servlet-class>esj.back.levels_manage.servlet.tset</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>admin_getlevelsServlet</servlet-name>
+    <servlet-class>esj.back.levels_manage.servlet.admin_getlevelsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>admin_deleteslevelServlet</servlet-name>
+    <servlet-class>esj.back.levels_manage.servlet.admin_deleteslevelServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>admin_lnoteschangestateServlet</servlet-name>
+    <servlet-class>esj.back.user_info_manage.servlet.admin_lnoteschangestateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>admin_rnoteschangestateServlet</servlet-name>
+    <servlet-class>esj.back.user_info_manage.servlet.admin_rnoteschangestateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>admin_userschangestateServlet</servlet-name>
+    <servlet-class>esj.back.user_info_manage.servlet.admin_userschangestateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>admin_authoritieschangestateServlet</servlet-name>
+    <servlet-class>esj.back.user_info_manage.servlet.admin_authoritieschangestateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>admin_back_login</servlet-name>
+    <servlet-class>esj.back.user_info_manage.servlet.admin_back_login</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SelectMenuServlet</servlet-name>
+    <servlet-class>esj.back.user_info_manage.servlet.SelectMenuServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>Admin_listServlet</servlet-name>
+    <url-pattern>/back/control_authoritie/Admin_listServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Authoritie_GroupServlet</servlet-name>
+    <url-pattern>/back/control_authoritie/Authoritie_GroupServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AuthoritieChangeStateServlet</servlet-name>
+    <url-pattern>/back/control_authoritie/AuthoritieChangeStateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Authoritie_GroupDeleteServlet</servlet-name>
+    <url-pattern>/back/control_authoritie/Authoritie_GroupDeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Authoritie_GroupAddServlet</servlet-name>
+    <url-pattern>/back/control_authoritie/Authoritie_GroupAddServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Authoritie_GroupFindByIdServlet</servlet-name>
+    <url-pattern>/back/control_authoritie/Authoritie_GroupFindByIdServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Authoritie_GroupUpdataServlet</servlet-name>
+    <url-pattern>/back/control_authoritie/Authoritie_GroupUpdataServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Tag_ListServlet</servlet-name>
+    <url-pattern>/back/control_tag/Tag_ListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TagStateChangeServlet</servlet-name>
+    <url-pattern>/back/control_tag/TagStateChangeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TagAddServlet</servlet-name>
+    <url-pattern>/back/control_tag/TagAddServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TagUpdataServlet</servlet-name>
+    <url-pattern>/back/control_tag/TagUpdataServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserDmand_ListServlet</servlet-name>
+    <url-pattern>/back/control_userDmand/UserDmand_ListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Product_ListServlet</servlet-name>
+    <url-pattern>/back/control_product/Product_ListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Product_CategoryServlet</servlet-name>
+    <url-pattern>/back/control_product/Product_CategoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Product_CategoryAddServlet</servlet-name>
+    <url-pattern>/back/control_product/Product_CategoryAddServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Product_CategoryDeleteServlet</servlet-name>
+    <url-pattern>/back/control_product/Product_CategoryDeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Product_CategoryUpdateServlet</servlet-name>
+    <url-pattern>/back/control_product/Product_CategoryUpdateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Product_StateChangeServlet</servlet-name>
+    <url-pattern>/back/control_product/Product_StateChangeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Product_DeleteServlet</servlet-name>
+    <url-pattern>/back/control_product/Product_DeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Admin_AddServlet</servlet-name>
+    <url-pattern>/back/control_authoritie/Admin_AddServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Admin_UpdateServlet</servlet-name>
+    <url-pattern>/back/control_authoritie/Admin_UpdateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminChangeStateServlet</servlet-name>
+    <url-pattern>/back/control_authoritie/AdminChangeStateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Admin_DeleteServlet</servlet-name>
+    <url-pattern>/back/control_authoritie/Admin_DeleteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserDemandChangeStateServlet</servlet-name>
+    <url-pattern>/back/control_userDemand/UserDemandChangeStateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserDemand_DeleteServlet</servlet-name>
+    <url-pattern>/back/control_userDemand/UserDemand_DeleteServlet</url-pattern>
+  </servlet-mapping>
+  <!-- 刘青松	-->
+  <servlet-mapping>
+    <servlet-name>admin_savelevelsServlet</servlet-name>
+    <url-pattern>/back/control_level/admin_savelevelsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>tset</servlet-name>
+    <url-pattern>/person_center/tset</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>admin_getlevelsServlet</servlet-name>
+    <url-pattern>/back/control_level/admin_getlevelsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>admin_deleteslevelServlet</servlet-name>
+    <url-pattern>/servlet/admin_deleteslevelServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>admin_lnoteschangestateServlet</servlet-name>
+    <url-pattern>/servlet/admin_lnoteschangestateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>admin_rnoteschangestateServlet</servlet-name>
+    <url-pattern>/servlet/admin_rnoteschangestateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>admin_userschangestateServlet</servlet-name>
+    <url-pattern>/servlet/admin_userschangestateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>admin_authoritieschangestateServlet</servlet-name>
+    <url-pattern>/servlet/admin_authoritieschangestateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>admin_back_login</servlet-name>
+    <url-pattern>/back/admin_back_login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectMenuServlet</servlet-name>
+    <url-pattern>/back/SelectMenuServlet</url-pattern>
+  </servlet-mapping>
+  <!-- end 后台 -->
+  <!-- zhu -->
+ <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SoldProServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.SoldProServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FubuProServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.FubuProServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ProtypeServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.ProtypeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>test</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.test</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FabuUNeedServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.FabuUNeedServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserMsgServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.UserMsgServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserPwdServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.UserPwdServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ReservServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.ReservServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CollectsServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.CollectsServlet</servlet-class>
+  </servlet>
+  
+   <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SDealingServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.SDealingServlet</servlet-class>
+   </servlet>
+
+
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>BDealingServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.BDealingServlet</servlet-class>
+  </servlet>
+    <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChangeDemServlet</servlet-name>
+    <servlet-class>esj.front.demands.servlet.ChangeDemServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ChangeProServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.ChangeProServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+   <servlet-name>ChangeDemServlet</servlet-name>
+    <url-pattern>/person_center/ChangeDem</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ChangeProServlet</servlet-name>
+    <url-pattern>/person_center/ChangePro</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+   <servlet-mapping>
+    <servlet-name>BDealingServlet</servlet-name>
+    <url-pattern>/person_center/BDealing</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SDealingServlet</servlet-name>
+    <url-pattern>/person_center/SellerDealing</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SoldProServlet</servlet-name>
+    <url-pattern>/person_center/SoldProServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FubuProServlet</servlet-name>
+    <url-pattern>/person_center/FubuProServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProtypeServlet</servlet-name>
+    <url-pattern>/person_center/ProtypeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/person_center/test</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FabuUNeedServlet</servlet-name>
+    <url-pattern>/person_center/FabuUNeedServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserMsgServlet</servlet-name>
+    <url-pattern>/person_center/UserMsgServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserPwdServlet</servlet-name>
+    <url-pattern>/person_center/UserPwdServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReservServlet</servlet-name>
+    <url-pattern>/person_center/ReservServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CollectsServlet</servlet-name>
+    <url-pattern>/person_center/CollectsServlet</url-pattern>
+  </servlet-mapping>
+
+  
+  <!-- end zhu -->
+  
+  
+  <servlet>
+    <description>邮箱注册获取验证码</description>
+    <servlet-name>RegisterGetCaptchaServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.XRegisterGetCaptchaServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>用户注册</description>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.XRegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>用户登录</description>
+    <servlet-name>UserLoginServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.XUserLoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>用户注销登录</description>
+    <servlet-name>XUserLogoutServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.XUserLogoutServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>生成验证码</description>
+    <servlet-name>CaptchaServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.CaptchaServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>找回密码</description>
+    <servlet-name>XFindPwdServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.XFindPwdServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>左边边框栏的数据添加</description>
+    <servlet-name>XSearchServlet</servlet-name>
+    <servlet-class>esj.front.products.servlet.XSearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>标签搜索</description>
+    <servlet-name>XTagsSearchServlet</servlet-name>
+    <servlet-class>esj.front.products.servlet.XTagsSearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>修改我的需求</description>
+    <servlet-name>XChangeMyNeedServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.XChangeMyNeedServlet</servlet-class>
+  </servlet>
+
+
+  <servlet>
+    <description>查看商品的详细信息</description>
+    <servlet-name>XProductInfoServlet</servlet-name>
+    <servlet-class>esj.front.products.servlet.XProductInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>用户查看自己的需求</description>
+    <servlet-name>XUserLookDemandsServlet</servlet-name>
+    <servlet-class>esj.front.demands.servlet.XUserLookDemandsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>用户需求详情</description>
+    <servlet-name>XDemandsInfoServlet</servlet-name>
+    <servlet-class>esj.front.demands.servlet.XDemandsInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>给用户商品留言</description>
+    <servlet-name>XProLnotesServlet</servlet-name>
+    <servlet-class>esj.front.products.servlet.XProLnotesServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>给商品赞或踩</description>
+    <servlet-name>XPraiseTreadServlet</servlet-name>
+    <servlet-class>esj.front.products.servlet.XPraiseTreadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>收藏商品</description>
+    <servlet-name>XCollectProductServlet</servlet-name>
+    <servlet-class>esj.front.products.servlet.XCollectProductServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>查询需求</description>
+    <servlet-name>XSearchDemandsServlet</servlet-name>
+    <servlet-class>esj.front.demands.servlet.XSearchDemandsServlet</servlet-class>
+  </servlet>
+
+
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SendEmailServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.SendEmailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AllReservServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.AllReservServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>给需求留言</description>
+    <servlet-name>XDemandLnotesServlet</servlet-name>
+    <servlet-class>esj.front.demands.servlet.XDemandLnotesServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>商品类别搜索</description>
+    <servlet-name>XProTypeSearchServlet</servlet-name>
+    <servlet-class>esj.front.products.servlet.XProTypeSearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>商品类别搜索</description>
+    <servlet-name>TagsServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.TagsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UserChangePwdServlet</servlet-name>
+    <servlet-class>esj.front.usercenter.servlet.UserChangePwdServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>RegisterGetCaptchaServlet</servlet-name>
+    <url-pattern>/RegisterGetCaptcha</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/Register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserLoginServlet</servlet-name>
+    <url-pattern>/UserLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XUserLogoutServlet</servlet-name>
+    <url-pattern>/XUserLogout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CaptchaServlet</servlet-name>
+    <url-pattern>/Captcha</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XFindPwdServlet</servlet-name>
+    <url-pattern>/XFindPwdServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XSearchServlet</servlet-name>
+    <url-pattern>/XSearch</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XTagsSearchServlet</servlet-name>
+    <url-pattern>/XTagsSearch</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XChangeMyNeedServlet</servlet-name>
+    <url-pattern>/person_center/XChangeMyNeed</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>XProductInfoServlet</servlet-name>
+    <url-pattern>/XProductInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XUserLookDemandsServlet</servlet-name>
+    <url-pattern>/person_center/XUserLookDemands</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XDemandsInfoServlet</servlet-name>
+    <url-pattern>/XDemandsInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XProLnotesServlet</servlet-name>
+    <url-pattern>/XProLnotes</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XPraiseTreadServlet</servlet-name>
+    <url-pattern>/XPraiseTreadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XCollectProductServlet</servlet-name>
+    <url-pattern>/XCollectProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XSearchDemandsServlet</servlet-name>
+    <url-pattern>/XSearchDemands</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>SendEmailServlet</servlet-name>
+    <url-pattern>/SendEmail</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AllReservServlet</servlet-name>
+    <url-pattern>/person_center/AllReserv</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XDemandLnotesServlet</servlet-name>
+    <url-pattern>/XDemandLnotesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XProTypeSearchServlet</servlet-name>
+    <url-pattern>/XProTypeSearch</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TagsServlet</servlet-name>
+    <url-pattern>/person_center/Tags</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserChangePwdServlet</servlet-name>
+    <url-pattern>/person_center/UserChangePwd</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

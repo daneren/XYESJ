@@ -1,0 +1,9 @@
+clsCnt=253
+eclipse.preferences.version=1
+locCnt=16934
+pkgCnt=73
+sTime=2016\u5E747\u670816\u65E5 \u661F\u671F\u516D \u4E0A\u534804\u65F656\u520616\u79D2 CST
+srcCnt=1
+validator.Checked=src/esj/front/usercenter/dao/impl/PProtypesBeanDaoimpl.java,src/esj/front/usercenter/dao/impl/PProductsBeanDaoimpl.java,src/esj/front/usercenter/dao/impl/PTagsBeanDaoimpl.java,src/esj/front/usercenter/dao/impl/PUsersBeanDaoimpl.java,WebRoot,src/esj/front/usercenter/dao/impl/PReservesBeanDaoimpl.java
+validator.Revalidate=true
+validator.Unchecked=
